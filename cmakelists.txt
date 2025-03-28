@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.10)
+project(VSCE)
+
+set(BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR}/dist)
+set(EXECUTABLE_OUTPUT_PATH ../${BUILD_DIR})
+set(LIBRARY_OUTPUT_PATH ${BUILD_DIR}/libs)
+set(ARCHIVE_OUTPUT_PATH ${BUILD_DIR}/obj)
+
+# Set the C standard to use
+set(CMAKE_C_STANDARD 11)
+
+# Configure
+add_compile_options(-Wall -Wextra -Wpedantic)
+
+# Add the source files
+add_executable(${PROJECT_NAME} VSCE.c src/bitboard.c)
+
+# Add the include directories
+include_directories(${PROJECT_SOURCE_DIR} includes)
